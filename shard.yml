@@ -1,0 +1,21 @@
+name: crcrcr
+version: 0.1.0
+
+authors:
+  - Siegfried Ehret <siegfried@ehret.me>
+
+description: |
+  crcrcr
+
+targets:
+  crcrcr:
+    main: src/crcrcr.cr
+
+crystal: 0.32.1
+
+dependencies:
+  ncurses:
+    github: agatan/ncurses.cr
+
+
+license: GPL v3
