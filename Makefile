@@ -11,6 +11,7 @@ ifndef TARGET
 endif
 
 release-archive: build check-target ## Make a tar.gz archive from the binary
+	shards build --release ;\
 	cd bin ;\
 	tar czf crcrcr-$(TARGET).tar.gz crcrcr
 
