@@ -15,12 +15,20 @@ module CRCRCR
         loop do
           NCurses.erase
 
-          s = files[keys[current]]
-          h, w = NCurses.maxy, NCurses.maxx
-          y = h / 2
-          x = (w - s.size) / 2
+          s = files[keys[current]]          # current slide
+          h, w = NCurses.maxy, NCurses.maxx # max sizes
 
-          NCurses.addstr(s)
+          lines = s.lines
+          line_numbers = lines.size
+
+          lines.each_with_index do |content, i|
+            y = ((h - line_numbers) / 2) + i
+            x = (w - content.size) / 2
+
+            NCurses.move(x: x, y: y)
+            NCurses.addstr(content)
+          end
+
           NCurses.refresh
 
           key = NCurses.getch
