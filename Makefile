@@ -15,8 +15,12 @@ release-archive: check-target ## Make a tar.gz archive from the binary
 	cd bin ;\
 	tar czf crcrcr-$(TARGET).tar.gz crcrcr
 
-push: # Push to ALM
-	VERSION=$(cat VERSION); \
+check-version: ## Check that VERSION present
+ifndef VERSION
+	$(error VERSION is undefined (make push VERSION=42))
+endif
+
+push: check-version # Push to ALM
 	git tag release-${VERSION}; \
 	git push bitbucket master; \
 	git push bitbucket master --tags; \
