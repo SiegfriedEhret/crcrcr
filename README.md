@@ -29,6 +29,14 @@ The slides are ordered alphabetically, so the order is:
 - 02-what/01-slides.txt
 - 02-what/02-terminal.txt
 
+Possible flags:
+
+- `-w 50` or `--width=50`: fix the width of the slides. They will be centered in the terminal.
+
+# Known issues
+
+- :bug: Crashes when the terminal is resized and the content reaches the borders.
+
 # Development
 
 `crcrcr` is made with [Crystal](https://crystal-lang.org/).
