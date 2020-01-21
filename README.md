@@ -41,6 +41,13 @@ Possible flags:
 
 `crcrcr` is made with [Crystal](https://crystal-lang.org/).
 
+Code available on:
+
+- [Bitbucket](https://bitbucket.org/siegfriedehret/crcrcr)
+- [Codeberg](https://codeberg.org/SiegfriedEhret/crcrcr)
+- [GitHub](https://github.com/SiegfriedEhret/crcrcr/)
+- [GitLab](https://gitlab.com/SiegfriedEhret/crcrcr)
+
 ## License
 
 Licensed under the [GPLv3 license](./LICENSE).
