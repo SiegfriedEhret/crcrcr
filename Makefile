@@ -33,5 +33,9 @@ run: build ## Run crcrcr
 	cd slides ;\
 	crcrcr
 
+run-fixed-width: build ## Run crcrcr with fixed width (400)
+	cd slides ;\
+	crcrcr -w 50 # Or crcrcr --width=50
+
 help: ## Print this message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
