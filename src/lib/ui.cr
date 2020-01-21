@@ -25,7 +25,7 @@ module CRCRCR
         if (line.size < w)
           result << Line.new(line, x)
         else
-          content
+          line
             .scan(/.{1,#{w}}/)
             .map { |c| c[0].strip }
             .each { |chunk| result << Line.new(chunk, x) }
@@ -35,9 +35,11 @@ module CRCRCR
       result
     end
 
-    def self.run(files : Hash(String, String))
+    def self.run(files : Hash(String, String), givenWidth : String | Nil)
       keys = files.keys.sort
       current = 0
+
+      width = givenWidth ? givenWidth.to_i : 0
 
       NCurses.open do
         NCurses.cbreak
@@ -48,15 +50,22 @@ module CRCRCR
         loop do
           NCurses.erase
 
+          leftGap = 0
+          if width == 0
+            width = NCurses.maxx
+          else
+            leftGap = (NCurses.maxx - width) / 2
+          end
+
           s = files[keys[current]]
-          lines = self.get_lines_and_positions(s, NCurses.maxx)
+          lines = self.get_lines_and_positions(s, width)
           y = ((NCurses.maxy - lines.size) / 2)
           if y < 0
             y = 0
           end
 
           lines.each do |line|
-            NCurses.mvaddstr(line.text, x: line.x, y: y)
+            NCurses.mvaddstr(line.text, x: line.x + leftGap, y: y)
             y += 1
           end
 
