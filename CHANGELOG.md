@@ -1,5 +1,8 @@
 # crcrcr releases
 
+## [release-5](https://github.com/SiegfriedEhret/crcrcr/releases/tag/release-5)
+
+- :gift: Allow to fix the width of slides, centered in the terminal
 
 ## [release-3](https://github.com/SiegfriedEhret/crcrcr/releases/tag/release-3)
 
