@@ -27,7 +27,9 @@ push: check-version # Push to ALM
 	git push codeberg master; \
 	git push codeberg master --tags; \
 	git push github master; \
-	git push github master --tags
+	git push github master --tags; \
+	git push gitlab master; \
+	git push gitlab master --tags
 
 run: build ## Run crcrcr
 	cd slides ;\
